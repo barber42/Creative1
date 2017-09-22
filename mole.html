@@ -1,0 +1,99 @@
+<html>
+<head>
+<style>
+body{
+	background-color: orange;
+}
+img{
+	position: absolute;
+}	
+h1{
+	text-align: center;
+	font-family: "Avant Garde",sans-serif;
+	font-size: 180px;
+	color: CornflowerBlue;
+	
+}
+</style>
+</head>
+<body>
+<h1>WHACK-A-MOLE</h1>
+<img src="mole.png" id="mole1" height="290" width="290" style="bottom:400;left:213;opacity:0" onclick = "myFunction(1)">
+<img src="mole.png" id="mole2" height="290" width="290" style="bottom:400;left:613;opacity:1"  onclick = "myFunction(2)">
+<img src="mole.png" id="mole3" height="290" width="290" style="bottom:400;left:1013;opacity:0" onclick = "myFunction(3)">
+
+<img src="pipe.png" style="bottom:150;left:200;">
+<img src="pipe.png" style="bottom:150;left:600;">
+<img src="pipe.png" style="bottom:150;left:1000;">
+
+<script>
+var opac1 = 0;
+var opac2 = 1;
+var opac3 = 0;
+var mol = 0;
+function myFunction(mol)
+{
+	if(mol == 1){
+		if(opac1 == 0){
+			return;
+		
+		}else{
+			opac1 = 0;
+			document.getElementById("mole1").style.opacity = "0";
+			
+			var next = Math.floor((Math.random() * 2) + 1);
+			
+			if(next == 1){
+				document.getElementById("mole3").style.opacity = "1";
+				opac3 = 1;
+			}else{					
+				document.getElementById("mole2").style.opacity = "1";
+				opac2 = 1;
+			}
+		}
+	}
+
+if(mol == 2){
+		if(opac2 == 0){
+			return;
+		
+		}else{
+			opac2 = 0;
+			document.getElementById("mole2").style.opacity = "0";
+			
+			var next = Math.floor((Math.random() * 2) + 1);
+			
+			if(next == 1){
+				document.getElementById("mole1").style.opacity = "1";
+				opac1 = 1;
+			}else{					
+				document.getElementById("mole3").style.opacity = "1";
+				opac3 = 1;
+			}
+		}
+	}
+
+if(mol == 3){
+		if(opac3 == 0){
+			return;
+		
+		}else{
+			opac3 = 0;
+			document.getElementById("mole3").style.opacity = "0";
+			
+			var next = Math.floor((Math.random() * 2) + 1);
+			
+			if(next == 1){
+				document.getElementById("mole1").style.opacity = "1";
+				opac1 = 1;
+			}else{					
+				document.getElementById("mole2").style.opacity = "1";
+				opac2 = 1;
+			}
+		}
+	}
+}
+
+</script>
+</body>
+</html>
